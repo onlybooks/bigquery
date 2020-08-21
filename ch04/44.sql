@@ -1,0 +1,1 @@
+SELECT * from advdata.students

@@ -1,0 +1,2 @@
+bq cp ch04.college_scorecard
+someds.college_scorecard_copy

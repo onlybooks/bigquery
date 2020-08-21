@@ -1,0 +1,1 @@
+SELECT * FROM EXTERNAL_QUERY(connection_id, cloud_sql_query);

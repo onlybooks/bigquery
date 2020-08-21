@@ -1,0 +1,4 @@
+SELECT
+  MAX(CAST(SAT_AVG AS FLOAT64)) AS MAX_SAT_AVG
+FROM
+  `ch04.college_scorecard_gcs`

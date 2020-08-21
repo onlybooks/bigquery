@@ -1,0 +1,1 @@
+DROP TABLE IF EXISTS ch04.college_scorecard_gcs

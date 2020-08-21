@@ -1,0 +1,1 @@
+bq show --format prettyjson --schema ch04.college_scorecard > schema.json
