@@ -1,0 +1,1 @@
+bq insert ch05.rentals_last_hour data.json

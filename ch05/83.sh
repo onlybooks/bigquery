@@ -1,0 +1,1 @@
+bq extract --format=json ch05.bad_bikes gs://bad_bikes.json

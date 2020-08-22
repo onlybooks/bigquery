@@ -1,0 +1,6 @@
+--location=EU
+--project_id=some_project
+[mk]
+--expiration=3600
+[query]
+--use_legacy_sql=false

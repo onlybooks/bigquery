@@ -1,0 +1,1 @@
+bq --location=US cp ch05.temp_table@1418864998000 ch05.temp_table2

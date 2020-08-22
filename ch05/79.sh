@@ -1,0 +1,1 @@
+bq cp ch04.old_table ch05.new_table

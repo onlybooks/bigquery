@@ -1,0 +1,1 @@
+bq head -n 10 ch05.bad_bikes

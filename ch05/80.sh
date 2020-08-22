@@ -1,0 +1,1 @@
+bq wait --fail_on_error job_id

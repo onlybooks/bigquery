@@ -1,0 +1,6 @@
+{
+  "useLegacySql": false,
+  "timeoutMs": 0,
+  "useQueryCache": false,
+  "query": \"${QUERY_TEXT}\"
+}

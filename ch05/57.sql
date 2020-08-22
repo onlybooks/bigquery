@@ -1,0 +1,1 @@
+badtrips.describe()

@@ -1,0 +1,9 @@
+{
+  "kind": "bigquery#queryResponse",
+  "jobReference": {
+    "projectId": "cloud-training-demos",
+    "jobId": "job_gv0Kq8nWzXIkuBwoxsKMcTJIVbX4",
+    "location": "EU"
+  },
+  "jobComplete": false
+}
