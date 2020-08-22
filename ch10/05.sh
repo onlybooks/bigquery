@@ -1,0 +1,1 @@
+bq --location=US cancel bquxjob_180ae24c_16b04a8d28d

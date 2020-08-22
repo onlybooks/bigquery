@@ -1,0 +1,1 @@
+bq --location=asia-east2 mk --dataset ch10hk

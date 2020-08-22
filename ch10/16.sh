@@ -1,0 +1,1 @@
+bq query --label environment:learning --nouse_legacy_sql 'SELECT 17'

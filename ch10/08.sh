@@ -1,0 +1,1 @@
+bq rm ch10eu.restored_cycle_stations

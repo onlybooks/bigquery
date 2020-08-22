@@ -1,0 +1,12 @@
+title: "Data Supplier"
+description: "Can create, but not delete tables"
+stage: "ALPHA"
+includedPermissions:
+  - bigquery.datasets.get
+  - bigquery.tables.list
+  - bigquery.tables.get
+  - bigquery.tables.getData
+  - bigquery.tables.export
+  - bigquery.datasets.create
+  - bigquery.tables.create
+  - bigquery.tables.updateData
