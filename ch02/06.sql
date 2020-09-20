@@ -1,0 +1,6 @@
+SELECT
+  gender, tripduration
+FROM
+  `bigquery-public-data`.new_york_citibike.citibike_trips
+WHERE tripduration < 600
+LIMIT 5

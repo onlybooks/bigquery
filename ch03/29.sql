@@ -1,0 +1,8 @@
+SELECT
+  ts, fmt
+  , FORMAT_TIMESTAMP(fmt, ts, '+6') AS ts_output
+FROM (
+  SELECT CURRENT_TIMESTAMP() AS ts, '%Y%m%d-%H%M%S' AS fmt
+  UNION ALL SELECT CURRENT_TIMESTAMP() AS ts, '%c' AS fmt
+  UNION ALL SELECT CURRENT_TIMESTAMP() AS ts, '%x %X' AS fmt
+)

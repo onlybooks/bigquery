@@ -1,0 +1,9 @@
+SELECT
+  ts
+  , FORMAT_TIMESTAMP('%c', ts) AS repr
+  , EXTRACT(DAYOFWEEK FROM ts) AS dayofweek
+  , EXTRACT(YEAR FROM ts) AS year
+  , EXTRACT(WEEK FROM ts) AS weekno
+FROM (
+  SELECT PARSE_TIMESTAMP('%Y%m%d-%H%M%S', '19181111-054500') AS ts
+)
