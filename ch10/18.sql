@@ -1,11 +1,17 @@
+WITH data as
+(
+  SELECT
+    protopayload_auditlog.authenticationInfo.principalEmail as principalEmail,
+    protopayload_auditlog.servicedata_v1_bigquery.jobCompletedEvent AS jobCompletedEvent
+  FROM
+    ch10.cloudaudit_googleapis_com_data_access_2019*
+)
 SELECT
-  invoice.month
-  , label.value
-  , ROUND(SUM(cost)
-    + SUM(IFNULL((SELECT SUM(c.amount) FROM UNNEST(credits) c), 0))
-    , 2) AS monthly_cost
-FROM ch10eu.gcp_billing_export_v1_XXXXXX_XXXXXX_XXXXXX , UNNEST(labels) AS label
+  principalEmail,
+  SUM(jobCompletedEvent.job.jobStatistics.totalBilledBytes)/POWER(2, 40)) AS Estimated_USD_Cost
+FROM
+  data
 WHERE
-  label.key = 'environment'
-GROUP BY 1, 2
-ORDER BY 1 ASC, 2 ASC
+  jobCompletedEvent.eventName = 'query_job_completed'
+GROUP BY principalEmail
+ORDER BY Estimated_USD_Cost DESC

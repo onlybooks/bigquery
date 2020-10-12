@@ -1,8 +1,3 @@
-SVC=$(bq show --encryption_service_account)
-gcloud kms keys add-iam-policy-binding \
-  --project=[KMS_PROJECT_ID] \
-  --member serviceAccount:$SVC \
-  --role roles/cloudkms.cryptoKeyEncrypterDecrypter \
-  --location=US \
-  --keyring=acmecorp \
-  xyz
+bq mk ... --destination_kms_key \
+  projects/[PROJECT_ID]/locations/US/keyRings/acmecorp/cryptoKeys/xyz \
+  mydataset.transactions

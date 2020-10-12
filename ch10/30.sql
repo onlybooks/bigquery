@@ -1,2 +1,1 @@
-SELECT COUNT (DISTINCT start_station_name)
-FROM `bigquery-public-data`.london_bicycles.cycle_hire
+DELETE ch10eu.encrypted_bike_keys WHERE bike_id = 300

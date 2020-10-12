@@ -1,14 +1,24 @@
-CREATE OR REPLACE TABLE ch10eu.encrypted_cycle_hire AS
+CREATE TEMPORARY FUNCTION
+  decrypt(keyset BYTES, encrypted BYTES, trip_start TIMESTAMP) AS (
+    AEAD.DECRYPT_STRING(keyset, encrypted, CAST(trip_start AS STRING))
+);
+
+WITH duration_by_station AS (
+  SELECT
+    duration
+    , decrypt(keyset, start_station_name, start_date) AS start_station_name
+  FROM
+    ch10eu.encrypted_cycle_hire
+  JOIN
+    ch10eu.encrypted_bike_keys USING (bike_id)
+)
 
 SELECT
-  cycle_hire.* EXCEPT(start_station_id, end_station_id,
-    start_station_name, end_station_name)
-  , encrypt_int(keyset, start_station_id, start_date) AS start_station_id
-  , encrypt_int(keyset, end_station_id, start_date) AS end_station_id
-  , encrypt_str(keyset, start_station_name, start_date) AS start_station_name
-  , encrypt_str(keyset, end_station_name, start_date) AS end_station_name
+  start_station_name
+  , AVG(duration) AS duration
 FROM
-  `bigquery-public-data`.london_bicycles.cycle_hire
-JOIN
-  ch10eu.encrypted_bike_keys
-USING (bike_id)
+  duration_by_station
+GROUP BY
+  start_station_name
+ORDER BY duration DESC
+LIMIT 5
