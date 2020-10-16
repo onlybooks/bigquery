@@ -1,0 +1,1 @@
+bq ls --filter 'labels.costcenter:def456'

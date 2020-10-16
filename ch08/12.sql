@@ -1,0 +1,9 @@
+CREATE TEMPORARY FUNCTION dayOfWeek(x TIMESTAMP) AS
+(
+  ['Sun','Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
+    [ORDINAL(EXTRACT(DAYOFWEEK from x))]
+);
+CREATE TEMPORARY FUNCTION getDate(x TIMESTAMP) AS
+(
+  EXTRACT(DATE FROM x)
+);

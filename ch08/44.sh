@@ -1,0 +1,1 @@
+bq update --set_label costcenter:abc342 ch08eu

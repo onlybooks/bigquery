@@ -1,0 +1,29 @@
+trainingInput:
+  scaleTier: CUSTOM
+  masterType: standard   # See: https://cloud.google.com/ml-engine/docs/tensorflow/machine-types
+  hyperparameters:
+    goal: MINIMIZE
+    maxTrials: 10
+    maxParallelTrials: 2
+    hyperparameterMetricTag: mean_absolute_error
+    params:
+    - parameterName: afternoon_start
+      type: INTEGER
+      minValue: 9
+      maxValue: 12
+      scaleType: UNIT_LINEAR_SCALE
+    - parameterName: afternoon_end
+      type: INTEGER
+      minValue: 15
+      maxValue: 19
+      scaleType: UNIT_LINEAR_SCALE
+    - parameterName: num_nodes_0
+      type: INTEGER
+      minValue: 10
+      maxValue: 100
+      scaleType: UNIT_LOG_SCALE
+    - parameterName: num_nodes_1
+      type: INTEGER
+      minValue: 3
+      maxValue: 10
+      scaleType: UNIT_LINEAR_SCALE

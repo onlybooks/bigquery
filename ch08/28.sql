@@ -1,0 +1,1 @@
+SELECT ['Lak', 'Jordan', 'Graham'] AS minions
