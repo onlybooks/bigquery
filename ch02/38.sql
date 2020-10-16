@@ -13,5 +13,5 @@ gifts AS (
 
 SELECT person, gift
 FROM winners
-INNERT JOIN gifts
+INNER JOIN gifts
 ON winners.event = gifts.event
