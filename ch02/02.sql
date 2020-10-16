@@ -1,5 +1,5 @@
 SELECT
   gender, tripduration
 FROM
-  `bigquery-public-data`.new_york_citibike.citibike_trips
+  `bigquery-public-data.new_york_citibike.citibike_trips`
 LIMIT 5
