@@ -81,7 +81,6 @@ GROUP BY sid, season, number, basin, name
 
 
 -- Queries
-
 -- 1.4s, 41.7 MB
 SELECT
   sid, number, basin, name,
