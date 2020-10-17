@@ -4,5 +4,5 @@ WITH example AS (
   UNION ALL SELECT 'Wed', 0, 0
 )
 SELECT 
-   *, ROUND(IEEE_Divide(oneways, numrides), 2)
+   *, ROUND(IEEE_DIVIDE(oneways, numrides), 2)
 AS frac_oneway from example

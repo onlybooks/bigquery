@@ -3,4 +3,4 @@ WITH example AS (
   UNION ALL SELECT false, 'b', 2
   UNION ALL SELECT false, 'c', 3
 )
-SELECT * from example WHERE is_vowel IS NOT false
+SELECT * FROM example WHERE is_vowel IS NOT false

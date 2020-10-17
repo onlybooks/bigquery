@@ -4,4 +4,4 @@ WITH example AS (
   UNION ALL SELECT 'Jian', 'Vacation'
   UNION ALL SELECT 'Jose', '40'
 )
-SELECT SUM(SAFE_CAST(hours_worked AS INT64)) from example
+SELECT SUM(SAFE_CAST(hours_worked AS INT64)) FROM example
