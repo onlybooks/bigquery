@@ -2,8 +2,8 @@ with denormalized_table AS (
   SELECT
     start_station_name
     , end_station_name
-    , ST_DISTANCE(ST_GEOGPOINT(s1.longitude, s1.latitude),
-                  ST_GEOGPOINT(s2.longitude, s2.latitude)) AS distance
+    , ST_DISTANCE(ST_GeogPoint(s1.longitude, s1.latitude),
+                  ST_GeogPoint(s2.longitude, s2.latitude)) AS distance
     , duration
   FROM
     `bigquery-public-data`.london_bicycles.cycle_hire AS h

@@ -1,16 +1,16 @@
 CREATE OR REPLACE TABLE ch09eu.stationstats AS
 WITH hires AS (
   SELECT
-    h.start_station_name as station_name,
-    IF(EXTRACT(DAYOFWEEK FROM h.start_date) BETWEEN 2 and 6, "weekday", "weekend") as isweekday,
+    h.start_station_name AS station_name,
+    IF(EXTRACT(DAYOFWEEK FROM h.start_date) BETWEEN 2 AND 6, "weekday", "weekend") AS isweekday,
     h.duration,
     s.bikes_count,
     ST_DISTANCE(ST_GEOGPOINT(s.longitude, s.latitude),
-    ST_GEOGPOINT(-0.1, 51.5))/1000 as distance_from_city_center
-  FROM `bigquery-public-data.london_bicycles.cycle_hire` as h
-  JOIN `bigquery-public-data.london_bicycles.cycle_stations` as s
+    ST_GEOGPOINT(-0.1, 51.5))/1000 AS distance_from_city_center
+  FROM `bigquery-public-data.london_bicycles.cycle_hire` AS h
+  JOIN `bigquery-public-data.london_bicycles.cycle_stations` AS s
   ON h.start_station_id = s.id
-  WHERE EXTRACT(YEAR from start_date) = 2015
+  WHERE EXTRACT(YEAR FROM start_date) = 2015
 ),
 
 stationstats AS (

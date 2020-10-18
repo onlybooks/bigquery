@@ -5,7 +5,7 @@ with distances AS (
     , b.id AS end_station_id
     , b.name AS end_station_name
     , ST_DISTANCE(ST_GeogPoint(a.longitude, a.latitude),
-    ST_GeogPoint(b.longitude, b.latitude)) AS distance
+                  ST_GeogPoint(b.longitude, b.latitude)) AS distance
   FROM
     `bigquery-public-data`.london_bicycles.cycle_stations a
   CROSS JOIN

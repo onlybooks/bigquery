@@ -1,7 +1,7 @@
 query = """
   SELECT
     start_station_id
-    , COUNT(*) as num_trips
+    , COUNT(*) AS num_trips
   FROM
     `bigquery-public-data`.london_bicycles.cycle_hire
   WHERE

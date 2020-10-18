@@ -4,4 +4,4 @@ SELECT
 FROM
   `bigquery-public-data`.london_bicycles.cycle_stations
 WHERE
-  id BETWEEN 300 and 305
+  id BETWEEN 300 AND 305
