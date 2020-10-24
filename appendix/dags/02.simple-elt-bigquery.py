@@ -16,7 +16,7 @@ default_args = {
     'project_id': PROJECT_ID
 }
 
-dag = DAG('simple_etl_storage_to_bigquery',
+dag = DAG('simple_elt_storage_to_bigquery',
           default_args=default_args,
           schedule_interval='30 0 * * *')
 
