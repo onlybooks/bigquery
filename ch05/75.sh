@@ -9,5 +9,5 @@ bq_safe_mk() {
     bq mk $dataset
   fi
 }
-# this is how you call the function
+# 이 함수를 호출하는 방법
 bq_safe_mk ch05
