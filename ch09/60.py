@@ -5,7 +5,7 @@ def train_and_evaluate(args):
   train_query = """
       CREATE OR REPLACE MODEL {}
       TRANSFORM(* EXCEPT(start_date)
-                , IF(EXTRACT(dayofweek FROM start_date) BETWEEN 2 and 6, 'weekday', 'weekend') as dayofweek
+                , IF(EXTRACT(dayofweek FROM start_date) BETWEEN 2 AND 6, 'weekday', 'weekend') AS dayofweek
                 , ML.BUCKETIZE(EXTRACT(HOUR FROM start_date), [5, {}, {}]) AS hourofday
       )
       OPTIONS(input_label_cols=['duration'], 
