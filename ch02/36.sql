@@ -11,3 +11,4 @@ gifts AS (
 SELECT winners.*, gifts.gift
 FROM winners
 JOIN gifts
+USING (event)
