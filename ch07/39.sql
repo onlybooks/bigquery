@@ -1,3 +1,3 @@
 SELECT
-  COUNT(DISTINCT bike_id) AS num_bikes
-FROM `bigquery-public-data`.london_bicycles.cycle_hire
+  COUNT(DISTINCT repo_name) AS num_repos
+FROM `bigquery-public-data`.github_repos.commits, UNNEST(repo_name) AS repo_name

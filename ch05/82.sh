@@ -1,1 +1,1 @@
-bq insert ch05.rentals_last_hour data.json
+bq mk --location eu ch10eu

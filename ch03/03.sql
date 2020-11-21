@@ -5,4 +5,4 @@ WITH example AS (
 )
 SELECT 
    *, ROUND(IEEE_DIVIDE(oneways, numrides), 2)
-AS frac_oneway from example
+AS frac_oneway FROM example

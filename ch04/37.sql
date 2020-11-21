@@ -4,6 +4,7 @@ CREATE TEMP FUNCTION cleanup_numeric(x STRING) AS
     CAST(x as FLOAT64),
     NULL )
 );
+
 WITH etl_data AS (
   SELECT
     INSTNM
@@ -15,13 +16,15 @@ WITH etl_data AS (
   FROM
     `ch04.college_scorecard_gcs`
 )
+
 SELECT
   *
 FROM
   etl_data
 WHERE
   SAT_AVG > 1300
-  AND ADM_RATE_ALL < 0.2 AND FIRST_GEN > 0.1
+  AND ADM_RATE_ALL < 0.2
+  AND FIRST_GEN > 0.1
 ORDER BY
   MD_FAMINC ASC
 LIMIT 10

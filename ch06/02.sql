@@ -1,7 +1,7 @@
 SELECT
   COUNT(*)
-  , starts.start_station_id as point_a
-  , ends.start_station_id as point_b
+  , starts.start_station_id AS point_a
+  , ends.start_station_id AS point_b
 FROM
   `bigquery-public-data`.london_bicycles.cycle_hire starts,
   `bigquery-public-data`.london_bicycles.cycle_hire ends

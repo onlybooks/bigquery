@@ -1,5 +1,6 @@
 SELECT
-  repo_name
-  , ARRAY_AGG(STRUCT(author, committer, subject, message, trailer, difference, encoding) ORDER BY author.date.seconds)
-FROM `bigquery-public-data.github_repos.commits`, UNNEST(repo_name) AS repo_name
-GROUP BY repo_name
+  rental_id
+  , ROW_NUMBER() OVER(ORDER BY end_date) AS rental_number
+FROM `bigquery-public-data`.london_bicycles.cycle_hire
+ORDER BY rental_number ASC
+LIMIT 5

@@ -1,3 +1,1 @@
-bq update --reservation --location=US \
-  --project_id=some_project \
-  --reservation_size=2000000000
+bq head -n 10 ch05.bad_bikes

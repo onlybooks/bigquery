@@ -10,7 +10,7 @@ WITH rides_in_year AS (
 )
 SELECT
   month
-  , AVG(duration)/60 as avg_duration_minutes
+  , AVG(duration)/60 AS avg_duration_minutes
 FROM rides_in_year
 GROUP BY month
 ORDER BY avg_duration_minutes DESC

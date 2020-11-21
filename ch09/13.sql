@@ -16,8 +16,8 @@ features AS (
     start_station_name
     , start_date
   FROM
-  generated
-  , UNNEST(dates) AS start_date
+    generated
+    , UNNEST(dates) AS start_date
 )
 
 SELECT * FROM ML.PREDICT(MODEL ch09eu.bicycle_model_bucketized,

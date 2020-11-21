@@ -1,5 +1,5 @@
 WITH example AS (
-  SELECT * from unnest([
+  SELECT * FROM unnest([
     'Seattle', 'New York', 'Singapore'
   ]) AS city
 )

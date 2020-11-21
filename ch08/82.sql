@@ -1,10 +1,3 @@
-SELECT
-  MIN(duration) AS min_dur
-  , MAX(duration) AS max_dur
-  , COUNT(duration) AS num_dur
-  , AVG(duration) AS avg_dur
-  , SUM(duration) AS total_dur
-  , STDDEV(duration) AS stddev_dur
-  , VARIANCE(duration) AS variance_dur
-FROM
-  `bigquery-public-data`.london_bicycles.cycle_hire
+DECLARE y ARRAY<STRUCT<trip_date DATE, ratio FLOAT64, num_trips_on_day INT64>>;
+CALL ch08eu.sp_most_unusual(10, y);
+SELECT y;

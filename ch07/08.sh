@@ -10,9 +10,3 @@ workloads:
     - queries/busystations.sql
   outputFileName: busystations.json
 EOF
-
-concurrencyLevel: 10
-isRatioBasedBenchmark: true
-benchmarkRatios: [0.1, 0.25, 0.5, 1.0, 1.5, 2.0]
-
-gradle clean :BigQueryWorkloadTester:run

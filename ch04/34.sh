@@ -7,5 +7,5 @@ bq $LOC \
   $INPUT \
   $SCHEMA \
   | sed 's/"skipLeadingRows": 0/"skipLeadingRows": 1/g' \
-  | sed 's/"allowJaggedRows": false/"allowJaggedRows": true/g' \ >
-  $OUTPUT
+  | sed 's/"allowJaggedRows": false/"allowJaggedRows": true/g' \
+  > $OUTPUT

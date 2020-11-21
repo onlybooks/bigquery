@@ -5,6 +5,6 @@ WITH all_trips AS (
   `bigquery-public-data`.new_york_citibike.citibike_trips
 )
 
-SELECT * from all_trips
+SELECT * FROM all_trips
 WHERE minutes < 10
 LIMIT 5

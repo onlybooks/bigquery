@@ -1,14 +1,7 @@
-SELECT
-  z.zip_code
-  , COUNT(*) AS num_stations
-FROM
-  `bigquery-public-data`.new_york.citibike_stations AS s,
-  `bigquery-public-data`.geo_us_boundaries.us_zip_codes AS z
-WHERE
-  ST_DWithin(
-    z.zcta_geom,
-    ST_GeogPoint(s.longitude, s.latitude),
-    1000) -- 1km
-GROUP BY z.zip_code
-ORDER BY num_stations DESC
-LIMIT 5
+EXECUTE IMMEDIATE """
+  SELECT country_region, province_state, _5_18_20 AS cases
+  FROM `bigquery-public-data`.covid19_jhu_csse.confirmed_cases
+  WHERE country_region LIKE @country
+  ORDER BY cases DESC LIMIT 3
+"""
+USING 'Canada' AS country;

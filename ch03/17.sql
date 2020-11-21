@@ -3,4 +3,4 @@ WITH example AS (
   UNION ALL SELECT false, 'b', 2
   UNION ALL SELECT false, 'c', 3
 )
-SELECT SUM(IF(is_vowel, 1, 0)) as num_vowels from example
+SELECT SUM(IF(is_vowel, 1, 0)) AS num_vowels FROM example

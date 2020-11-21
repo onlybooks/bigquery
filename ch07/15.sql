@@ -1,7 +1,7 @@
 WITH trip_distance AS (
   SELECT
     bike_id
-    , ST_DISTANCE(ST_GeogPoint(s.longitude, s.latitude),
+    , ST_Distance(ST_GeogPoint(s.longitude, s.latitude),
                   ST_GeogPoint(e.longitude, e.latitude)) AS distance
   FROM
     `bigquery-public-data`.london_bicycles.cycle_hire,

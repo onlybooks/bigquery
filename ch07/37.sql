@@ -1,3 +1,4 @@
 SELECT
-  COUNT(DISTINCT repo_name) AS num_repos
-FROM `bigquery-public-data`.github_repos.commits, UNNEST(repo_name) AS repo_name
+  author.tz_offset, ARRAY_AGG(STRUCT(author, committer, subject, message, trailer, difference, encoding) ORDER BY author.date.seconds LIMIT 1000)
+FROM `bigquery-public-data.github_repos.commits`
+GROUP BY author.tz_offset

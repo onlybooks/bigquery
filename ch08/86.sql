@@ -1,20 +1,14 @@
-WITH distances AS (
-  SELECT
-  id
-  , ST_Distance(location, ST_GeogPoint(-0.12574, 51.50853)) AS distance
-  FROM
-  ch08eu.cycle_stations
-),
-durations AS (
-  SELECT
-  start_station_id AS id
-  , APPROX_QUANTILES(duration, 2)[OFFSET(1)] AS median_duration
-  FROM
-  `bigquery-public-data`.london_bicycles.cycle_hire
-  GROUP BY start_station_id
-)
-
-SELECT CORR(distance, median_duration) AS pearson
-FROM distances
-JOIN durations
-USING(id)
+SELECT
+  z.zip_code
+  , COUNT(*) AS num_stations
+FROM
+  `bigquery-public-data`.new_york.citibike_stations AS s,
+  `bigquery-public-data`.geo_us_boundaries.us_zip_codes AS z
+WHERE
+  ST_DWithin(
+    z.zcta_geom,
+    ST_GeogPoint(s.longitude, s.latitude),
+    1000) -- 1km
+GROUP BY z.zip_code
+ORDER BY num_stations DESC
+LIMIT 5

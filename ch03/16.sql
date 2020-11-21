@@ -1,6 +1,7 @@
 WITH example AS (
-  SELECT true AS is_vowel, 'a' AS letter, 1 AS position
-  UNION ALL SELECT false, 'b', 2
-  UNION ALL SELECT false, 'c', 3
+  SELECT 'John' AS employee, '0' AS hours_worked
+  UNION ALL SELECT 'Janaki', '35'
+  UNION ALL SELECT 'Jian', '0'
+  UNION ALL SELECT 'Jose', '40'
 )
-SELECT SUM(CAST(is_vowel AS INT64)) as num_vowels FROM example
+SELECT SUM(CAST(hours_worked AS INT64)) FROM example

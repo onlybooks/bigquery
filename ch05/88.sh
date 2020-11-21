@@ -1,1 +1,1 @@
-bq head -n 10 ch05.bad_bikes
+bq extract --format=json ch05.bad_bikes gs://bad_bikes.json

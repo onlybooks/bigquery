@@ -1,29 +1,18 @@
-WITH male_babies AS (
+CREATE OR REPLACE TABLE ch07eu.london_bicycles_denorm AS
 SELECT
-  name
-  , number AS num_babies
-FROM `bigquery-public-data`.usa_names.usa_1910_current
-WHERE gender = 'M'
-),
-female_babies AS (
-SELECT
-  name
-  , number AS num_babies
-FROM `bigquery-public-data`.usa_names.usa_1910_current
-WHERE gender = 'F'
-),
-both_genders AS (
-SELECT
-  name
-  , SUM(m.num_babies) + SUM(f.num_babies) AS num_babies
-  , SUM(m.num_babies) / (SUM(m.num_babies) + SUM(f.num_babies)) AS frac_male
-FROM male_babies AS m
-JOIN female_babies AS f
-USING (name)
-GROUP BY name
-)
-
-SELECT * FROM both_genders
-WHERE frac_male BETWEEN 0.3 and 0.7
-ORDER BY num_babies DESC
-LIMIT 5
+  start_station_id
+  , s.latitude AS start_latitude
+  , s.longitude AS start_longitude
+  , end_station_id
+  , e.latitude AS end_latitude
+  , e.longitude AS end_longitude
+FROM
+  `bigquery-public-data`.london_bicycles.cycle_hire AS h
+JOIN
+  `bigquery-public-data`.london_bicycles.cycle_stations AS s
+ON
+  h.start_station_id = s.id
+JOIN
+  `bigquery-public-data`.london_bicycles.cycle_stations AS e
+ON
+  h.end_station_id = e.id

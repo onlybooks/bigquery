@@ -1,11 +1,11 @@
 WITH from_item_a AS (
-  SELECT 'Dalles' as city, 'OR' as state
+  SELECT 'Dalles' AS city, 'OR' AS state
   UNION ALL SELECT 'Tokyo', 'Tokyo'
   UNION ALL SELECT 'Mumbai', 'Maharashtra'
 ),
 
 from_item_b AS (
-  SELECT 'OR' as state, 'USA' as country
+  SELECT 'OR' AS state, 'USA' AS country
   UNION ALL SELECT 'Tokyo', 'Japan'
   UNION ALL SELECT 'Maharashtra', 'India'
 )

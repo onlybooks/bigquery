@@ -11,5 +11,5 @@ SELECT
   costPrice * 1.05 * (1+taxrate),
   costPrice * (1+markup) * 1.10,
   NULL
-  ),2) AS salesPrice
+  ), 2) AS salesPrice
 FROM catalog

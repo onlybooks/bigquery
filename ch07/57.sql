@@ -1,7 +1,5 @@
-SELECT
-  start_station_name
-  , AVG(duration) AS avg_duration
-FROM ch07eu.cycle_hire_2015
-GROUP BY start_station_name
-ORDER BY avg_duration DESC
-LIMIT 5
+SELECT name, zipcode
+FROM ch07.zipcode_area
+JOIN `bigquery-public-data`.utility_us.us_cities_area
+ON ST_INTERSECTS(zipcode_geom, city_geom)
+WHERE name LIKE '%Santa Fe%'

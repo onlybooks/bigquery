@@ -4,5 +4,5 @@ WITH example AS (
   UNION ALL SELECT 'Mon', 1476, 736
 )
 
-SELECT * from example
+SELECT * FROM example
 WHERE numrides < 2000

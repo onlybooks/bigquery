@@ -1,1 +1,1 @@
-bq --location=asia-east2 mk --dataset ch10hk
+bq query --label environment:learning --nouse_legacy_sql 'SELECT 17'

@@ -1,12 +1,8 @@
-#!/bin/bash
-read -d '' QUERY_TEXT << EOF
-SELECT
-  start_station_name
-  , AVG(duration) as duration
-  , COUNT(duration) as num_trips
-FROM \`bigquery-public-data\`.london_bicycles.cycle_hire
-GROUP BY start_station_name
-ORDER BY num_trips DESC
-LIMIT 5
-EOF
-bq query --project_id=some_project --use_legacy_sql=false $QUERY_TEXT
+bq load --source_format=AVRO \
+    --time_partitioning_expiration … \
+    --time_partitioning_field … \
+    --time_partitioning_type … \
+    --clustering_fields … \
+    --schema … \
+    todataset.table_name \
+    gs://.../data_*.avro

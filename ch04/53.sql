@@ -1,2 +1,2 @@
-SELECT protopayload_auditlog.status.message
-FROM ch04.cloudaudit_googleapis_com_data_access_20190128
+SELECT protopayload_auditlog.status.message FROM
+ch04.cloudaudit_googleapis_com_data_access_20190128

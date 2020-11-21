@@ -1,12 +1,12 @@
 CREATE TEMP FUNCTION cleanup_numeric(x STRING) AS
 (
   IF ( x != 'NULL' AND x != 'PrivacySuppressed',
-       CAST(x as FLOAT64),
-        NULL )
+    CAST(x as FLOAT64),
+    NULL )
 );
 
 CREATE TABLE ch04.college_scorecard_etl
-OPTIONS(description="Cleaned up college scorecard data") AS
+OPTIONS(description="대학 점수카드 데이터를 정리한 데이터") AS
 
 WITH etl_data AS (
   SELECT

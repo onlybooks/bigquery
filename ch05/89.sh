@@ -1,1 +1,4 @@
-bq head -s 10 -n 10 ch05.bad_bikes
+bq query \
+  --use_legacy_sql=false \
+  'SELECT MAX(duration) FROM \
+  `bigquery-public-data`.london_bicycles.cycle_hire'

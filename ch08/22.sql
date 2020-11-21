@@ -3,7 +3,7 @@ WITH params AS (
 )
 SELECT
   start_station_name
-  , COUNT(duration) as num_trips
+  , COUNT(duration) AS num_trips
 FROM
   `bigquery-public-data`.london_bicycles.cycle_hire
   , params

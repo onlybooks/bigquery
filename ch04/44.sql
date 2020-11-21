@@ -1,1 +1,1 @@
-SELECT * from advdata.students
+SELECT * FROM advdata.students

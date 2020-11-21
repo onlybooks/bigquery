@@ -1,13 +1,12 @@
-CREATE OR REPLACE MODEL ch09eu.bicycle_model_longrental
-TRANSFORM(* EXCEPT(start_date)
-  , IF(EXTRACT(dayofweek FROM start_date) BETWEEN 2 AND 6, 'weekday', 'weekend') AS dayofweek
-  , ML.BUCKETIZE(EXTRACT(HOUR FROM start_date), [5, 10, 17]) AS hourofday
-)
-OPTIONS(input_label_cols=['biketype'], model_type='logistic_reg')
-AS
-
+CREATE OR REPLACE MODEL ch09eu.numrentals_forecast
+OPTIONS(model_type='ARIMA',
+        time_series_data_col='numrentals',
+        time_series_timestamp_col='date') AS
 SELECT
-  IF(duration > 1800, 'roadbike', 'commuter') AS biketype
-  , start_station_name
-  , start_date
-FROM `bigquery-public-data`.london_bicycles.cycle_hire
+  CAST(EXTRACT(date FROM start_date) AS TIMESTAMP) AS date
+  , COUNT(*) AS numrentals
+FROM
+  `bigquery-public-data`.london_bicycles.cycle_hire
+WHERE start_station_name LIKE '%Hyde%' -- 하이드 공원의 모든 대여소
+GROUP BY date
+HAVING date BETWEEN '2015-05-01' AND '2015-06-15'

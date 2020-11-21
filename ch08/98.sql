@@ -1,0 +1,1 @@
+SELECT GENERATE_UUID() AS uuid;

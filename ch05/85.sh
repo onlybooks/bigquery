@@ -1,3 +1,4 @@
-echo "SELECT MAX(duration) FROM \
-  `bigquery-public-data`.london_bicycles.cycle_hire" \
-  | bq query --use_legacy_sql=false
+bq show --schema dataset.table. # schema.json
+bq --format=json show dataset.table. # tabledef.json
+bq extract --destination_format=AVRO \
+           dataset.table gs://.../data_*.avro # AVRO 파일

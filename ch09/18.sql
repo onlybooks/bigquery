@@ -4,5 +4,5 @@ SELECT
   category.category AS category_name,
   category.weight AS category_weight
 FROM
-  ml.WEIGHTS(MODEL dataset.model) AS model,
+  ML.WEIGHTS(MODEL dataset.model) AS model,
   UNNEST(category_weights) AS category

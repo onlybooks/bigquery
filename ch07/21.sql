@@ -1,18 +1,15 @@
-CREATE OR REPLACE TABLE ch07eu.london_bicycles_denorm AS
 SELECT
-  start_station_id
-  , s.latitude AS start_latitude
-  , s.longitude AS start_longitude
-  , end_station_id
-  , e.latitude AS end_latitude
-  , e.longitude AS end_longitude
+  EXTRACT (DATE FROM start_date) AS trip_date
+  , APPROX_QUANTILES(duration / typical_duration, 10)[OFFSET(5)] AS ratio
+  , COUNT(*) AS num_trips_on_day
 FROM
-  `bigquery-public-data`.london_bicycles.cycle_hire as h
-JOIN
-  `bigquery-public-data`.london_bicycles.cycle_stations as s
+  `bigquery-public-data`.london_bicycles.cycle_hire AS hire
+JOIN typical_trip AS trip
 ON
-  h.start_station_id = s.id
-JOIN
-  `bigquery-public-data`.london_bicycles.cycle_stations as e
-ON
-  h.end_station_id = e.id
+  hire.start_station_name = trip.start_station_name
+  AND hire.end_station_name = trip.end_station_name
+  AND num_trips > 10
+GROUP BY trip_date
+HAVING num_trips_on_day > 10
+ORDER BY ratio DESC
+LIMIT 10

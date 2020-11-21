@@ -11,9 +11,9 @@ EOF
 
 read -d '' request << EOF
 {
-"useLegacySql": false,
-"useQueryCache": false,
-"query": \"${QUERY_TEXT}\"
+  "useLegacySql": false,
+  "useQueryCache": false,
+  "query": \"${QUERY_TEXT}\"
 }
 EOF
 request=$(echo "$request" | tr '\n' ' ')

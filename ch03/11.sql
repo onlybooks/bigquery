@@ -10,5 +10,5 @@ SELECT
     costPrice * 
     IF(markup IS NULL, 1.05, 1+markup) * 
     IF(taxRate IS NULL, 1.10, 1+taxRate) 
-  , 2) AS salesPrice
+    , 2) AS salesPrice
 FROM catalog

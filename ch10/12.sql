@@ -1,4 +1,4 @@
-CREATE OR REPLACE TABLE -- or TABLE/MODEL/FUNCTION
+CREATE OR REPLACE TABLE -- 또는 TABLE/MODEL/FUNCTION
 ch10eu.stations_under_construction
 (
   station_id INT64 OPTIONS(description = 'Station ID'),
@@ -6,7 +6,7 @@ ch10eu.stations_under_construction
 )
 OPTIONS(
   description = 'Stations in London.',
-  labels=[("pii", "none")] -- Must be lowercase.
+  labels=[("pii", "none")] -- 반드시 소문자여야 한다.
 )
 AS
 

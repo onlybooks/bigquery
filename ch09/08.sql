@@ -5,6 +5,6 @@ AS
 SELECT
   duration
   , start_station_name
-  , IF(EXTRACT(dayofweek FROM start_date) BETWEEN 2 and 6, 'weekday', 'weekend') as dayofweek
+  , IF(EXTRACT(dayofweek FROM start_date) BETWEEN 2 AND 6, 'weekday', 'weekend') as dayofweek
   , CAST(EXTRACT(hour FROM start_date) AS STRING) AS hourofday
 FROM `bigquery-public-data`.london_bicycles.cycle_hire

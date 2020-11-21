@@ -1,7 +1,9 @@
 SELECT
-  name
-  , ST_GeogPoint(longitude, latitude) AS location
+  column_name,
+  parse_date('_%m_%d_%y', column_name) AS date
 FROM
-  `bigquery-public-data`.london_bicycles.cycle_stations
+  `bugquery-public-data`.covid19_jhu_csse.INFORMATION_SCHEMA.COLUMNS
 WHERE
-  id BETWEEN 300 AND 305
+  table_name = 'confirmed_cases' AND
+  STARTS_WITH(column_name, '_')
+ORDER BY date DESC LIMIT 3
